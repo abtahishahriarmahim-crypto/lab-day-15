@@ -29,6 +29,7 @@ class EmployeeSystem:
                 print("====================")
 
 
+
 #this method is for searching movies bby their title
     def searchEmployee(self, name):
         for employee in self.__employees:
@@ -42,6 +43,18 @@ class EmployeeSystem:
         print("Employee not found in the system")
 
 
+
+
+# Increase employee salary
+    def increase_salary(self, name, amount):
+        for employee in self.__employees:
+            if employee["name"].lower() == name.lower():
+                employee["salary"] += amount
+                print("Salary updated successfully.")
+                print("New Salary:", employee["salary"])
+                return
+
+        print("Employee not found.")
 
 
     def countEmployee(self):
@@ -62,6 +75,12 @@ for i in range(number_of_employee):
     employe.addEmployee(name,position,salary)
 
 employe.displayEmployeesRecords()
+
+# Increase salary
+name = input("Enter employee name to increase salary: ")
+amount = float(input("Enter salary increase amount: "))
+
+employe.increase_salary(name, amount)
 
 searchEmployeeName = input("\nSearch Employee:")
 employe.searchEmployee(searchEmployeeName)
