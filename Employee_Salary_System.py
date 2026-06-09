@@ -13,7 +13,8 @@ class EmployeeSystem:
         print(name, "has been added to Employee system")
 
 
-#this method displays all movies in the watchlist
+#this method displays all employee records 
+
     def displayEmployeesRecords(self):
         if len(self.__employees) == 0:
             print("No Employee found by this name.")
@@ -30,7 +31,8 @@ class EmployeeSystem:
 
 
 
-#this method is for searching movies bby their title
+#this method is for searching employes by their name
+
     def searchEmployee(self, name):
         for employee in self.__employees:
             if employee["name"].lower() == name.lower():
@@ -46,6 +48,7 @@ class EmployeeSystem:
 
 
 # Increase employee salary
+
     def increase_salary(self, name, amount):
         for employee in self.__employees:
             if employee["name"].lower() == name.lower():
@@ -61,27 +64,29 @@ class EmployeeSystem:
         return len(self.__employees)
     
 
-employe = EmployeeSystem()
+employe = EmployeeSystem() #creating object of the class
 
-number_of_employee = int(input("How many Employee do you wanna add?? Please enter a valid number:"))
+#employe name, salary, position and quantity of employee input section
+number_of_employee = int(input("How many Employees you want to add:"))
 for i in range(number_of_employee):
     print("\nEnter Employee", i + 1)
-
     name = input("Enter employee name:")
     position = input("Enter employee position:")
     salary = float(input("Enter employee salary :"))
-
 
     employe.addEmployee(name,position,salary)
 
 employe.displayEmployeesRecords()
 
-# Increase salary
+#salary increament input
+
 name = input("Enter employee name to increase salary: ")
 amount = float(input("Enter salary increase amount: "))
 
 employe.increase_salary(name, amount)
 
+#search employe input
 searchEmployeeName = input("\nSearch Employee:")
 employe.searchEmployee(searchEmployeeName)
+
 print("\nTotal Employees:",employe.countEmployee())
